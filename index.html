@@ -1,344 +1,504 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Felix Fertig</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, Helvetica, sans-serif;
-    }
+<title>Felix Fertig</title>
 
-    body{
-      background:#0f1724;
-      color:white;
-      overflow-x:hidden;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-    header{
-      position:fixed;
-      width:100%;
-      top:0;
-      left:0;
-      padding:20px 60px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:rgba(10,15,25,0.9);
-      backdrop-filter:blur(10px);
-      z-index:999;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
+<style>
 
-    .logo{
-      font-size:30px;
-      font-weight:800;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
 
-    .logo span{
-      color:#39ff14;
-    }
+body{
+font-family:'Inter',sans-serif;
+background:#08111d;
+color:white;
+overflow-x:hidden;
+}
 
-    nav a{
-      color:white;
-      text-decoration:none;
-      margin-left:35px;
-      font-weight:600;
-      transition:0.3s;
-    }
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:24px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(5,10,18,0.85);
+backdrop-filter:blur(14px);
+z-index:999;
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
 
-    nav a:hover{
-      color:#39ff14;
-    }
+.logo{
+font-size:34px;
+font-weight:900;
+}
 
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      padding:140px 80px 80px;
-      background:
-      linear-gradient(rgba(7,12,20,0.82), rgba(7,12,20,0.88)),
-      url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1974&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-    }
+.logo span{
+color:#39ff14;
+}
 
-    .hero-content{
-      max-width:700px;
-    }
+nav{
+display:flex;
+gap:35px;
+}
 
-    .hero h1{
-      font-size:76px;
-      line-height:1;
-      margin-bottom:30px;
-      font-weight:900;
-    }
+nav a{
+text-decoration:none;
+color:white;
+font-weight:600;
+transition:0.3s;
+}
 
-    .hero h1 span{
-      color:#39ff14;
-    }
+nav a:hover{
+color:#39ff14;
+}
 
-    .hero p{
-      font-size:24px;
-      line-height:1.7;
-      color:#d1d5db;
-      margin-bottom:40px;
-    }
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:160px 80px 100px;
 
-    .cta{
-      display:inline-block;
-      background:#39ff14;
-      color:black;
-      padding:18px 40px;
-      border-radius:14px;
-      text-decoration:none;
-      font-size:20px;
-      font-weight:700;
-      transition:0.3s;
-      box-shadow:0 0 20px rgba(57,255,20,0.4);
-    }
+background:
+linear-gradient(to right,
+rgba(5,10,18,0.95) 15%,
+rgba(5,10,18,0.75) 45%,
+rgba(5,10,18,0.7) 100%),
 
-    .cta:hover{
-      transform:translateY(-4px);
-      box-shadow:0 0 30px rgba(57,255,20,0.8);
-    }
+url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1974&auto=format&fit=crop');
 
-    section{
-      padding:100px 60px;
-    }
+background-size:cover;
+background-position:center;
+}
 
-    .section-title{
-      text-align:center;
-      font-size:54px;
-      margin-bottom:70px;
-      font-weight:900;
-    }
+.hero-content{
+max-width:760px;
+}
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:30px;
-    }
+.hero h1{
+font-size:92px;
+line-height:0.95;
+font-weight:900;
+margin-bottom:35px;
+}
 
-    .card{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:24px;
-      padding:40px 30px;
-      transition:0.3s;
-      backdrop-filter:blur(10px);
-      min-height:280px;
+.hero h1 span{
+color:#39ff14;
+text-shadow:0 0 20px rgba(57,255,20,0.45);
+}
 
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-start;
-    }
+.hero p{
+font-size:26px;
+line-height:1.7;
+color:#d1d5db;
+margin-bottom:50px;
+max-width:700px;
+}
 
-    .card:hover{
-      transform:translateY(-10px);
-      border-color:#39ff14;
-      box-shadow:0 0 30px rgba(57,255,20,0.2);
-    }
+.features{
+display:flex;
+gap:45px;
+margin-bottom:50px;
+flex-wrap:wrap;
+}
 
-    .card h3{
-      color:#39ff14;
-      font-size:28px;
-      margin-bottom:25px;
-      min-height:70px;
-    }
+.feature{
+display:flex;
+align-items:center;
+gap:12px;
+font-weight:600;
+color:#d1d5db;
+}
 
-    .card p{
-      color:#d1d5db;
-      line-height:1.7;
-      font-size:18px;
-    }
+.feature-icon{
+width:46px;
+height:46px;
+border-radius:14px;
+background:rgba(57,255,20,0.12);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+color:#39ff14;
+}
 
-    .about{
-      text-align:center;
-      max-width:900px;
-      margin:auto;
-    }
+.cta{
+display:inline-block;
+padding:20px 42px;
+border-radius:16px;
+background:#39ff14;
+color:black;
+text-decoration:none;
+font-weight:800;
+font-size:20px;
+transition:0.3s;
+box-shadow:0 0 30px rgba(57,255,20,0.35);
+}
 
-    .about p{
-      font-size:24px;
-      line-height:1.8;
-      color:#d1d5db;
-    }
+.cta:hover{
+transform:translateY(-5px);
+box-shadow:0 0 40px rgba(57,255,20,0.6);
+}
 
-    footer{
-      padding:60px 30px;
-      text-align:center;
-      border-top:1px solid rgba(255,255,255,0.08);
-      color:#9ca3af;
-    }
+section{
+padding:110px 70px;
+}
 
-    .contact{
-      margin-top:25px;
-      font-size:22px;
-      color:white;
-    }
+.section-title{
+text-align:center;
+font-size:58px;
+font-weight:900;
+margin-bottom:70px;
+}
 
-    .contact a{
-      color:#39ff14;
-      text-decoration:none;
-    }
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
 
-    @media(max-width:900px){
+.card{
+background:linear-gradient(
+180deg,
+rgba(255,255,255,0.06),
+rgba(255,255,255,0.03)
+);
 
-      header{
-        padding:20px;
-      }
+border:1px solid rgba(255,255,255,0.08);
 
-      nav{
-        display:none;
-      }
+border-radius:28px;
+padding:42px 34px;
+transition:0.35s;
 
-      .hero{
-        padding:140px 25px 60px;
-      }
+backdrop-filter:blur(12px);
 
-      .hero h1{
-        font-size:52px;
-      }
+min-height:320px;
+}
 
-      .hero p{
-        font-size:20px;
-      }
+.card:hover{
+transform:translateY(-12px);
+border-color:#39ff14;
+box-shadow:0 0 35px rgba(57,255,20,0.16);
+}
 
-      section{
-        padding:80px 25px;
-      }
+.card-icon{
+font-size:42px;
+margin-bottom:25px;
+}
 
-      .section-title{
-        font-size:42px;
-      }
-    }
+.card h3{
+font-size:32px;
+margin-bottom:24px;
+color:#39ff14;
+line-height:1.2;
+}
 
-  </style>
+.card p{
+font-size:19px;
+line-height:1.8;
+color:#d1d5db;
+}
+
+.about{
+max-width:1100px;
+margin:auto;
+text-align:center;
+}
+
+.about p{
+font-size:26px;
+line-height:1.9;
+color:#d1d5db;
+}
+
+.why{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-top:60px;
+}
+
+.why-box{
+padding:35px 25px;
+border-radius:24px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.06);
+}
+
+.why-box h4{
+font-size:22px;
+margin-top:18px;
+}
+
+footer{
+padding:90px 30px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.08);
+}
+
+footer h2{
+font-size:44px;
+margin-bottom:25px;
+}
+
+.contact{
+font-size:24px;
+margin-bottom:20px;
+}
+
+.contact a{
+color:#39ff14;
+text-decoration:none;
+}
+
+.whatsapp{
+position:fixed;
+bottom:30px;
+right:30px;
+width:70px;
+height:70px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:34px;
+text-decoration:none;
+box-shadow:0 0 30px rgba(37,211,102,0.4);
+z-index:999;
+transition:0.3s;
+}
+
+.whatsapp:hover{
+transform:scale(1.08);
+}
+
+@media(max-width:900px){
+
+header{
+padding:20px;
+}
+
+nav{
+display:none;
+}
+
+.hero{
+padding:140px 25px 80px;
+}
+
+.hero h1{
+font-size:58px;
+}
+
+.hero p{
+font-size:20px;
+}
+
+.features{
+gap:20px;
+}
+
+section{
+padding:90px 25px;
+}
+
+.section-title{
+font-size:44px;
+}
+
+.about p{
+font-size:20px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">Felix <span>Fertig</span></div>
 
-  <nav>
-    <a href="#leistungen">Leistungen</a>
-    <a href="#uebermich">Über mich</a>
-    <a href="#kontakt">Kontakt</a>
-  </nav>
+<div class="logo">
+Felix <span>Fertig</span>
+</div>
+
+<nav>
+<a href="#leistungen">Leistungen</a>
+<a href="#warum">Warum Felix?</a>
+<a href="#kontakt">Kontakt</a>
+</nav>
+
 </header>
 
 <section class="hero">
 
-  <div class="hero-content">
+<div class="hero-content">
 
-    <h1>
-      Damit’s <br>
-      <span>einfach erledigt ist.</span>
-    </h1>
+<h1>
+Damit’s<br>
+<span>einfach erledigt ist.</span>
+</h1>
 
-    <p>
-      Betreuung, Koordination & technische Unterstützung
-      rund um Gebäude, Wohnungen und Immobilien.
-      <br><br>
-      Nimmst den Felix, bist fertig.
-    </p>
+<p>
+Betreuung, Koordination & technische Unterstützung
+rund um Gebäude, Wohnungen und Immobilien.
+<br><br>
+Nimmst den Felix, bist fertig.
+</p>
 
-    <a class="cta" href="mailto:office@felix-fertig.at">
-      Jetzt anfragen
-    </a>
+<div class="features">
 
-  </div>
+<div class="feature">
+<div class="feature-icon">✓</div>
+Zuverlässig
+</div>
+
+<div class="feature">
+<div class="feature-icon">⚡</div>
+Direkt
+</div>
+
+<div class="feature">
+<div class="feature-icon">🤝</div>
+Praxisnah
+</div>
+
+</div>
+
+<a class="cta" href="mailto:office@felix-fertig.at">
+Jetzt anfragen
+</a>
+
+</div>
 
 </section>
 
 <section id="leistungen">
 
-  <h2 class="section-title">Leistungen</h2>
+<h2 class="section-title">
+Leistungen
+</h2>
 
-  <div class="cards">
+<div class="cards">
 
-    <div class="card">
-      <h3>Objektbetreuung</h3>
-      <p>
-        Unterstützung rund um Immobilien,
-        Betreuung und Koordination im Alltag.
-      </p>
-    </div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>Objektbetreuung</h3>
+<p>
+Unterstützung rund um Immobilien,
+Betreuung und Koordination im Alltag.
+</p>
+</div>
 
-    <div class="card">
-      <h3>Sanierungskoordination</h3>
-      <p>
-        Organisation, Abstimmung und praktische
-        Lösungen bei Sanierungen und Umbauten.
-      </p>
-    </div>
+<div class="card">
+<div class="card-icon">🛠️</div>
+<h3>Sanierungskoordination</h3>
+<p>
+Organisation, Abstimmung und praktische Lösungen
+bei Sanierungen und Umbauten.
+</p>
+</div>
 
-    <div class="card">
-      <h3>FM Beratung</h3>
-      <p>
-        Facility Management Unterstützung
-        mit Praxisbezug statt unnötigem Fachchinesisch.
-      </p>
-    </div>
+<div class="card">
+<div class="card-icon">📋</div>
+<h3>FM Beratung</h3>
+<p>
+Facility Management Unterstützung
+mit Praxisbezug statt unnötigem Fachchinesisch.
+</p>
+</div>
 
-    <div class="card">
-      <h3>Technische Unterstützung</h3>
-      <p>
-        Hilfe bei technischen Themen,
-        Koordination und Problemlösungen.
-      </p>
-    </div>
+<div class="card">
+<div class="card-icon">⚙️</div>
+<h3>Technische Unterstützung</h3>
+<p>
+Hilfe bei technischen Themen,
+Koordination und Problemlösungen.
+</p>
+</div>
 
-  </div>
+</div>
 
 </section>
 
-<section id="uebermich">
+<section id="warum">
 
-  <h2 class="section-title">Warum Felix Fertig?</h2>
+<h2 class="section-title">
+Warum Felix Fertig?
+</h2>
 
-  <div class="about">
+<div class="about">
 
-    <p>
-      Weil heutzutage alles kompliziert genug ist.
-      <br><br>
+<p>
+Weil heutzutage alles kompliziert genug ist.
+<br><br>
 
-      Ich unterstütze dort, wo Dinge hängen bleiben,
-      keiner mehr durchblickt oder einfach jemand gebraucht wird,
-      der sich kümmert.
-      <br><br>
+Ich unterstütze dort, wo Dinge hängen bleiben,
+niemand mehr durchblickt oder einfach jemand gebraucht wird,
+der sich kümmert.
+<br><br>
 
-      Direkt. Praxisnah. Lösungsorientiert.
-      Ohne unnötiges Gerede.
-    </p>
+Direkt. Praxisnah. Lösungsorientiert.
+Ohne unnötiges Gerede.
+</p>
 
-  </div>
+<div class="why">
+
+<div class="why-box">
+<h4>unkompliziert</h4>
+</div>
+
+<div class="why-box">
+<h4>Handschlagqualität</h4>
+</div>
+
+<div class="why-box">
+<h4>praktisch statt kompliziert</h4>
+</div>
+
+<div class="why-box">
+<h4>einer der sich kümmert</h4>
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 <footer id="kontakt">
 
-  <h2>Kontakt</h2>
+<h2>Kontakt</h2>
 
-  <div class="contact">
-    📧 <a href="mailto:office@felix-fertig.at">
-      office@felix-fertig.at
-    </a>
-  </div>
+<div class="contact">
+📧 <a href="mailto:office@felix-fertig.at">
+office@felix-fertig.at
+</a>
+</div>
 
-  <br>
-
-  <p>
-    © 2026 Felix Fertig
-  </p>
+<p>
+© 2026 Felix Fertig
+</p>
 
 </footer>
+
+<a class="whatsapp" href="#">
+💬
+</a>
 
 </body>
 </html>
