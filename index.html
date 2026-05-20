@@ -1,499 +1,742 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Felix Fertig</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-    }
+<title>Felix Fertig</title>
 
-    body{
-      font-family:Arial, sans-serif;
-      background:#111827;
-      color:white;
-      overflow-x:hidden;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-    header{
-      position:fixed;
-      top:0;
-      width:100%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:20px 40px;
-      background:rgba(0,0,0,0.55);
-      backdrop-filter:blur(8px);
-      z-index:1000;
-    }
+<style>
 
-    .logo{
-      font-size:2rem;
-      font-weight:bold;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
 
-    .logo span{
-      color:#39ff14;
-    }
+body{
+font-family:'Inter',sans-serif;
+background:#0b1120;
+color:white;
+overflow-x:hidden;
+}
 
-    nav a{
-      color:white;
-      text-decoration:none;
-      margin-left:30px;
-      font-weight:bold;
-      transition:0.3s;
-    }
+/* ===== SCROLLBAR ===== */
 
-    nav a:hover{
-      color:#39ff14;
-    }
+::-webkit-scrollbar{
+width:10px;
+}
 
-    .hero{
-      min-height:100vh;
-      background:
-      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
-      url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      align-items:center;
-      padding:120px 8%;
-    }
+::-webkit-scrollbar-track{
+background:#111827;
+}
 
-    .hero-content{
-      max-width:700px;
-    }
+::-webkit-scrollbar-thumb{
+background:#39ff14;
+border-radius:20px;
+}
 
-    .hero h1{
-      font-size:5rem;
-      line-height:0.95;
-      margin-bottom:25px;
-      font-weight:900;
-    }
+/* ===== HEADER ===== */
 
-    .hero h1 span{
-      color:#39ff14;
-      text-shadow:0 0 15px #39ff14;
-    }
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:22px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+background:rgba(5,10,20,0.55);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
 
-    .hero p{
-      font-size:1.4rem;
-      line-height:1.7;
-      margin-bottom:25px;
-      color:#e5e7eb;
-    }
+/* ===== LOGO ===== */
 
-    .btn{
-      display:inline-block;
-      background:#39ff14;
-      color:black;
-      padding:18px 35px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:bold;
-      transition:0.3s;
-      box-shadow:0 0 20px rgba(57,255,20,0.5);
-    }
+.logo{
+display:flex;
+align-items:center;
+gap:2px;
+font-size:2.2rem;
+font-weight:900;
+letter-spacing:-2px;
+}
 
-    .btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 0 30px rgba(57,255,20,0.8);
-    }
+.logo .white{
+color:white;
+}
 
-    section{
-      padding:100px 8%;
-    }
+.logo .green{
+color:#39ff14;
+text-shadow:
+0 0 8px #39ff14,
+0 0 18px #39ff14;
+}
 
-    .section-title{
-      text-align:center;
-      font-size:3rem;
-      margin-bottom:70px;
-    }
+/* ===== NAV ===== */
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px;
-      align-items:stretch;
-    }
+nav{
+display:flex;
+gap:35px;
+}
 
-    .card{
-      background:#1f2937;
-      padding:35px;
-      border-radius:20px;
-      transition:0.3s;
-      border:1px solid rgba(255,255,255,0.08);
-      display:flex;
-      flex-direction:column;
-      height:100%;
-    }
+nav a{
+color:white;
+text-decoration:none;
+font-weight:700;
+font-size:0.95rem;
+transition:0.3s;
+position:relative;
+}
 
-    .card:hover{
-      transform:translateY(-8px);
-      border-color:#39ff14;
-      box-shadow:0 0 25px rgba(57,255,20,0.2);
-    }
+nav a:hover{
+color:#39ff14;
+}
 
-    .card h3{
-      color:#39ff14;
-      margin-bottom:20px;
-      font-size:1.5rem;
-      min-height:60px;
-      display:flex;
-      align-items:center;
-    }
+nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+width:0%;
+height:2px;
+background:#39ff14;
+transition:0.3s;
+}
 
-    .card p{
-      color:#d1d5db;
-      line-height:1.7;
-      flex-grow:1;
-    }
+nav a:hover::after{
+width:100%;
+}
 
-    .about{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:60px;
-      align-items:center;
-    }
+/* ===== HERO ===== */
 
-    .about-box{
-      background:#1f2937;
-      padding:40px;
-      border-radius:20px;
-    }
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:140px 7%;
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(
+rgba(0,0,0,0.65),
+rgba(0,0,0,0.8)
+),
+url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop');
 
-    .about h2{
-      font-size:3rem;
-      margin-bottom:25px;
-    }
+background-size:cover;
+background-position:center;
+}
 
-    .about p{
-      line-height:1.9;
-      color:#d1d5db;
-      margin-bottom:20px;
-    }
+.hero::before{
+content:"FF";
+position:absolute;
+right:-60px;
+bottom:-80px;
+font-size:28rem;
+font-weight:900;
+color:rgba(255,255,255,0.03);
+pointer-events:none;
+}
 
-    .highlight{
-      color:#39ff14;
-      font-weight:bold;
-    }
+.hero-content{
+max-width:720px;
+z-index:2;
+}
 
-    .badges{
-      display:flex;
-      flex-wrap:wrap;
-      gap:15px;
-      margin-top:25px;
-    }
+.hero-badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:12px 18px;
+border-radius:999px;
+background:rgba(57,255,20,0.12);
+border:1px solid rgba(57,255,20,0.25);
+color:#39ff14;
+font-weight:700;
+margin-bottom:25px;
+backdrop-filter:blur(10px);
+}
 
-    .badge{
-      background:#111827;
-      border:1px solid #39ff14;
-      padding:10px 18px;
-      border-radius:999px;
-      color:#39ff14;
-      font-weight:bold;
-    }
+.hero h1{
+font-size:6rem;
+line-height:0.9;
+font-weight:900;
+margin-bottom:30px;
+letter-spacing:-4px;
+}
 
-    .pricing{
-      background:#0f172a;
-      border-radius:25px;
-      padding:60px;
-      text-align:center;
-    }
+.hero h1 span{
+color:#39ff14;
+text-shadow:
+0 0 10px #39ff14,
+0 0 25px rgba(57,255,20,0.8);
+}
 
-    .pricing h2{
-      font-size:3rem;
-      margin-bottom:25px;
-    }
+.hero p{
+font-size:1.3rem;
+line-height:1.8;
+color:#d1d5db;
+margin-bottom:25px;
+max-width:650px;
+}
 
-    .pricing p{
-      color:#d1d5db;
-      max-width:800px;
-      margin:auto;
-      line-height:1.8;
-      font-size:1.1rem;
-    }
+.hero-buttons{
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+margin-top:40px;
+}
 
-    .contact{
-      text-align:center;
-    }
+/* ===== BUTTONS ===== */
 
-    .contact p{
-      margin-top:20px;
-      font-size:1.2rem;
-      color:#d1d5db;
-    }
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:18px 34px;
+border-radius:18px;
+text-decoration:none;
+font-weight:800;
+transition:0.35s;
+font-size:1rem;
+}
 
-    .whatsapp{
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      background:#25D366;
-      color:white;
-      padding:16px 22px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:bold;
-      box-shadow:0 0 20px rgba(0,0,0,0.3);
-      z-index:999;
-    }
+.btn-primary{
+background:#39ff14;
+color:black;
+box-shadow:
+0 0 15px rgba(57,255,20,0.5),
+0 0 35px rgba(57,255,20,0.2);
+}
 
-    footer{
-      text-align:center;
-      padding:40px;
-      color:#9ca3af;
-      border-top:1px solid rgba(255,255,255,0.08);
-    }
+.btn-primary:hover{
+transform:translateY(-4px);
+box-shadow:
+0 0 20px rgba(57,255,20,0.9),
+0 0 40px rgba(57,255,20,0.5);
+}
 
-    @media(max-width:900px){
+.btn-secondary{
+border:1px solid rgba(255,255,255,0.15);
+background:rgba(255,255,255,0.04);
+backdrop-filter:blur(10px);
+color:white;
+}
 
-      header{
-        padding:20px;
-      }
+.btn-secondary:hover{
+border-color:#39ff14;
+color:#39ff14;
+}
 
-      nav{
-        display:none;
-      }
+/* ===== SECTIONS ===== */
 
-      .hero{
-        padding:140px 25px 80px;
-      }
+section{
+padding:110px 7%;
+}
 
-      .hero h1{
-        font-size:3.2rem;
-      }
+.section-title{
+font-size:3.5rem;
+font-weight:900;
+text-align:center;
+margin-bottom:70px;
+letter-spacing:-2px;
+}
 
-      .hero p{
-        font-size:1.1rem;
-      }
+/* ===== CARDS ===== */
 
-      .section-title{
-        font-size:2.3rem;
-      }
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:28px;
+}
 
-      .about{
-        grid-template-columns:1fr;
-      }
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(18px);
+border-radius:28px;
+padding:35px;
+transition:0.4s;
+position:relative;
+overflow:hidden;
+display:flex;
+flex-direction:column;
+}
 
-      .pricing{
-        padding:35px 25px;
-      }
+.card::before{
+content:"";
+position:absolute;
+top:-50%;
+right:-50%;
+width:200px;
+height:200px;
+background:rgba(57,255,20,0.08);
+border-radius:50%;
+}
 
-      .card h3{
-        min-height:auto;
-      }
-    }
-  </style>
+.card:hover{
+transform:translateY(-10px);
+border-color:rgba(57,255,20,0.4);
+box-shadow:
+0 0 25px rgba(57,255,20,0.08);
+}
+
+.card h3{
+font-size:1.5rem;
+margin-bottom:20px;
+color:#39ff14;
+min-height:60px;
+display:flex;
+align-items:center;
+}
+
+.card p{
+line-height:1.8;
+color:#d1d5db;
+flex-grow:1;
+}
+
+/* ===== ABOUT ===== */
+
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:35px;
+}
+
+.about-box{
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(18px);
+border-radius:30px;
+padding:45px;
+}
+
+.about-box h2{
+font-size:2.5rem;
+margin-bottom:25px;
+line-height:1.1;
+}
+
+.green{
+color:#39ff14;
+}
+
+.about-box p{
+line-height:1.9;
+color:#d1d5db;
+margin-bottom:20px;
+}
+
+.badges{
+display:flex;
+flex-wrap:wrap;
+gap:14px;
+margin-top:25px;
+}
+
+.badge{
+padding:12px 18px;
+border-radius:999px;
+background:#111827;
+border:1px solid rgba(57,255,20,0.3);
+color:#39ff14;
+font-weight:700;
+}
+
+/* ===== PRICE ===== */
+
+.price-box{
+background:
+linear-gradient(
+135deg,
+rgba(57,255,20,0.1),
+rgba(255,255,255,0.03)
+);
+
+border:1px solid rgba(57,255,20,0.15);
+
+padding:60px;
+border-radius:35px;
+text-align:center;
+}
+
+.price-box h2{
+font-size:3rem;
+margin-bottom:25px;
+}
+
+.price-box p{
+max-width:800px;
+margin:auto;
+line-height:1.9;
+font-size:1.1rem;
+color:#d1d5db;
+}
+
+/* ===== CONTACT ===== */
+
+.contact{
+text-align:center;
+}
+
+.contact-box{
+max-width:700px;
+margin:auto;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:35px;
+padding:60px 30px;
+backdrop-filter:blur(15px);
+}
+
+.contact-box p{
+font-size:1.2rem;
+margin-bottom:18px;
+color:#d1d5db;
+}
+
+/* ===== WHATSAPP ===== */
+
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+color:white;
+text-decoration:none;
+padding:16px 24px;
+border-radius:999px;
+font-weight:800;
+z-index:999;
+box-shadow:
+0 0 20px rgba(0,0,0,0.25);
+transition:0.3s;
+}
+
+.whatsapp:hover{
+transform:scale(1.08);
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+padding:45px;
+text-align:center;
+color:#9ca3af;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:950px){
+
+nav{
+display:none;
+}
+
+.hero{
+padding:140px 25px 100px;
+}
+
+.hero h1{
+font-size:3.7rem;
+letter-spacing:-2px;
+}
+
+.hero p{
+font-size:1.1rem;
+}
+
+.hero::before{
+font-size:12rem;
+right:-20px;
+bottom:-20px;
+}
+
+.section-title{
+font-size:2.5rem;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+.price-box{
+padding:40px 25px;
+}
+
+.card h3{
+min-height:auto;
+}
+
+header{
+padding:18px 25px;
+}
+
+.logo{
+font-size:2rem;
+}
+
+.hero-buttons{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.btn{
+width:100%;
+max-width:320px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">Felix <span>Fertig</span></div>
 
-  <nav>
-    <a href="#leistungen">Leistungen</a>
-    <a href="#uebermich">Über mich</a>
-    <a href="#preise">Preise</a>
-    <a href="#kontakt">Kontakt</a>
-  </nav>
+<div class="logo">
+<span class="white">F</span>
+<span class="green">F</span>
+</div>
+
+<nav>
+<a href="#leistungen">Leistungen</a>
+<a href="#uebermich">Über mich</a>
+<a href="#preise">Preise</a>
+<a href="#kontakt">Kontakt</a>
+</nav>
+
 </header>
+
+<!-- HERO -->
 
 <section class="hero">
 
-  <div class="hero-content">
+<div class="hero-content">
 
-    <h1>
-      Damit’s <br>
-      <span>einfach erledigt</span> ist.
-    </h1>
+<div class="hero-badge">
+⚡ Praxis statt Blabla
+</div>
 
-    <p>
-      Betreuung, Koordination & technische Unterstützung
-      rund um Gebäude, Wohnungen und Immobilien.
-    </p>
+<h1>
+Damit’s <br>
+<span>einfach erledigt</span> ist.
+</h1>
 
-    <p>
-      Nimmst den Felix, bist fertig.
-    </p>
+<p>
+Betreuung, Koordination & technische Unterstützung
+rund um Gebäude, Wohnungen und Immobilien.
+</p>
 
-    <a class="btn" href="#kontakt">
-      Jetzt anfragen
-    </a>
+<p>
+Nimmst den Felix, bist fertig.
+</p>
 
-  </div>
+<div class="hero-buttons">
+
+<a href="#kontakt" class="btn btn-primary">
+Jetzt anfragen
+</a>
+
+<a href="#uebermich" class="btn btn-secondary">
+Mehr erfahren
+</a>
+
+</div>
+
+</div>
 
 </section>
+
+<!-- LEISTUNGEN -->
 
 <section id="leistungen">
 
-  <h2 class="section-title">
-    Leistungen
-  </h2>
+<h2 class="section-title">
+Leistungen
+</h2>
 
-  <div class="cards">
+<div class="cards">
 
-    <div class="card">
-      <h3>Objektbetreuung</h3>
-      <p>
-        Unterstützung rund um Immobilien,
-        Betreuung und Koordination im Alltag.
-      </p>
-    </div>
+<div class="card">
+<h3>Objektbetreuung</h3>
+<p>
+Unterstützung rund um Immobilien,
+Betreuung und Koordination im Alltag.
+</p>
+</div>
 
-    <div class="card">
-      <h3>Sanierungskoordination</h3>
-      <p>
-        Organisation, Abstimmung und praktische Lösungen
-        bei Sanierungen und Umbauten.
-      </p>
-    </div>
+<div class="card">
+<h3>Sanierungskoordination</h3>
+<p>
+Organisation, Abstimmung und praktische Lösungen
+bei Sanierungen und Umbauten.
+</p>
+</div>
 
-    <div class="card">
-      <h3>FM Beratung</h3>
-      <p>
-        Facility Management Unterstützung
-        mit Praxisbezug statt unnötigem Fachchinesisch.
-      </p>
-    </div>
+<div class="card">
+<h3>FM Beratung</h3>
+<p>
+Facility Management Unterstützung
+mit Praxisbezug statt unnötigem Fachchinesisch.
+</p>
+</div>
 
-    <div class="card">
-      <h3>Technische Unterstützung</h3>
-      <p>
-        Hilfe bei technischen Themen,
-        Koordination und Problemlösungen.
-      </p>
-    </div>
+<div class="card">
+<h3>Technische Unterstützung</h3>
+<p>
+Hilfe bei technischen Themen,
+Koordination und Problemlösungen.
+</p>
+</div>
 
-  </div>
+</div>
 
 </section>
+
+<!-- ÜBER MICH -->
 
 <section id="uebermich">
 
-  <div class="about">
+<div class="about">
 
-    <div class="about-box">
+<div class="about-box">
 
-      <h2>
-        Warum <span class="highlight">Felix Fertig?</span>
-      </h2>
+<h2>
+Warum <span class="green">Felix Fertig?</span>
+</h2>
 
-      <p>
-        Ich komme nicht aus irgendeinem Büro.
-        Ich komme aus der Praxis.
-      </p>
+<p>
+Ich komme nicht aus irgendeinem Büro.
+Ich komme aus der Praxis.
+</p>
 
-      <p>
-        Mein Weg führte mich von der Industrie
-        über Logistik und Pharma bis hinein ins
-        Facility Management und die technische Immobilienbetreuung.
-      </p>
+<p>
+Vom Betriebsschlosser über Industrie,
+Logistik und Pharma bis hin zu Facility Management,
+Property Management und technischer Immobilienbetreuung.
+</p>
 
-      <p>
-        Von Knorr, Spar und Böhringer Ingelheim
-        über Banken und Property Management
-        bis aktuell in den Automotive Bereich bei BMW.
-      </p>
+<p>
+Von Knorr, Spar und Böhringer Ingelheim
+bis hinein in den Automotive Bereich bei BMW.
+</p>
 
-      <p>
-        Dabei ging es nie um Theorie —
-        sondern immer darum,
-        dass Dinge funktionieren.
-      </p>
+<p>
+Dabei ging es nie um Theorie —
+sondern immer darum,
+dass Dinge funktionieren.
+</p>
 
-    </div>
+</div>
 
-    <div class="about-box">
+<div class="about-box">
 
-      <h2>
-        Praxis statt <span class="highlight">Blabla.</span>
-      </h2>
+<h2>
+Praxis statt <span class="green">PowerPoint.</span>
+</h2>
 
-      <p>
-        Keine unnötigen Meetings.
-        Kein kompliziertes Consulting.
-        Keine leeren Versprechen.
-      </p>
+<p>
+Keine unnötigen Meetings.
+Keine komplizierten Prozesse.
+Keine leeren Versprechen.
+</p>
 
-      <p>
-        Sondern Lösungen,
-        Organisation,
-        technische Unterstützung
-        und Handschlagqualität.
-      </p>
+<p>
+Sondern Lösungen,
+Organisation,
+technische Unterstützung
+und Handschlagqualität.
+</p>
 
-      <div class="badges">
-        <div class="badge">🛠 Industrie</div>
-        <div class="badge">🏢 Facility Management</div>
-        <div class="badge">🏗 Sanierung</div>
-        <div class="badge">⚡ Technik</div>
-        <div class="badge">🤝 Handschlagqualität</div>
-      </div>
+<div class="badges">
 
-    </div>
+<div class="badge">🛠 Industrie</div>
+<div class="badge">🏢 Facility Management</div>
+<div class="badge">🏗 Sanierung</div>
+<div class="badge">⚡ Technik</div>
+<div class="badge">🤝 Handschlagqualität</div>
 
-  </div>
+</div>
+
+</div>
+
+</div>
 
 </section>
+
+<!-- PREISE -->
 
 <section id="preise">
 
-  <div class="pricing">
+<div class="price-box">
 
-    <h2>
-      Transparent & unkompliziert
-    </h2>
+<h2>
+Transparent & unkompliziert
+</h2>
 
-    <p>
-      Jedes Projekt ist unterschiedlich.
-      Deshalb gibt’s bei mir keine unnötigen Paketpreise
-      oder komplizierte Verträge.
-      <br><br>
-      Einfach melden,
-      Situation erklären
-      und wir finden eine praktische Lösung.
-      Schnell, direkt und fair.
-    </p>
+<p>
+Jedes Projekt ist unterschiedlich.
+Deshalb gibt’s bei mir keine komplizierten Paketpreise
+oder unnötigen Verträge.
+<br><br>
+Einfach melden,
+Situation erklären
+und wir finden eine praktische Lösung —
+schnell, direkt und fair.
+</p>
 
-  </div>
+</div>
 
 </section>
 
+<!-- KONTAKT -->
+
 <section id="kontakt" class="contact">
 
-  <h2 class="section-title">
-    Kontakt
-  </h2>
+<h2 class="section-title">
+Kontakt
+</h2>
 
-  <p>
-    📞 +43 699 18833159
-  </p>
+<div class="contact-box">
 
-  <p>
-    📧 office@felix-fertig.at
-  </p>
+<p>
+📞 +43 699 18833159
+</p>
 
-  <br><br>
+<p>
+📧 office@felix-fertig.at
+</p>
 
-  <a class="btn" href="mailto:office@felix-fertig.at">
-    Anfrage senden
-  </a>
+<br>
+
+<a href="mailto:office@felix-fertig.at"
+class="btn btn-primary">
+Anfrage senden
+</a>
+
+</div>
 
 </section>
 
 <footer>
-  © 2026 Felix Fertig — Nimmst den Felix, bist fertig.
+© 2026 Felix Fertig — Nimmst den Felix, bist fertig.
 </footer>
 
-<a class="whatsapp" href="https://wa.me/4369918833159" target="_blank">
-  WhatsApp
+<a class="whatsapp"
+href="https://wa.me/4369918833159"
+target="_blank">
+WhatsApp
 </a>
 
 </body>
