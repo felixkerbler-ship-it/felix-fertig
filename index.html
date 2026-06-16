@@ -1,560 +1,777 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Felix Fertig</title>
+<meta charset="UTF-8">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Felix Fertig | Hausbetreuung &
+Immobilienbetreuung Wien
+</title>
+
+<meta name="description"
+
+content="Felix Fertig - Hausbetreuung,
+Immobilienbetreuung und Sanierungsberatung
+in Wien. Damit's einfach erledigt ist.">
+
+<meta name="keywords"
+
+content="Hausbetreuung Wien,
+Immobilienbetreuung Wien,
+Sanierungsberatung Wien">
+
+<meta name="theme-color"
+content="#0b1120">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+rel="stylesheet">
 
 <style>
 
 *{
+
 margin:0;
+
 padding:0;
+
 box-sizing:border-box;
+
 scroll-behavior:smooth;
+
 }
 
 body{
+
 font-family:'Inter',sans-serif;
+
 background:#0b1120;
+
 color:white;
+
 overflow-x:hidden;
+
 }
 
-/* ===== SCROLLBAR ===== */
+/* SCROLLBAR */
 
 ::-webkit-scrollbar{
+
 width:10px;
+
 }
 
 ::-webkit-scrollbar-track{
+
 background:#111827;
+
 }
 
 ::-webkit-scrollbar-thumb{
+
 background:#39ff14;
+
 border-radius:20px;
+
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 
 header{
+
 position:fixed;
+
 top:0;
+
 left:0;
+
 width:100%;
-padding:22px 7%;
+
+padding:20px 7%;
+
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
+
 z-index:999;
-background:rgba(5,10,20,0.55);
-backdrop-filter:blur(12px);
-border-bottom:1px solid rgba(255,255,255,0.05);
+
+background:
+
+rgba(5,10,20,0.65);
+
+backdrop-filter:
+
+blur(12px);
+
+border-bottom:
+
+1px solid rgba(255,255,255,0.05);
+
 }
 
-/* ===== LOGO ===== */
+.logo img{
 
-.logo img {
-  height: 90px;
-  width: auto;
-  display: block;
+height:88px;
+
+width:auto;
+
+display:block;
+
 }
-
-.logo .white{
-color:white;
-}
-
-.logo .green{
-color:#39ff14;
-text-shadow:
-0 0 8px #39ff14,
-0 0 18px #39ff14;
-}
-
-/* ===== NAV ===== */
 
 nav{
+
 display:flex;
+
 gap:35px;
+
 }
 
 nav a{
-color:white;
+
 text-decoration:none;
+
+color:white;
+
 font-weight:700;
-font-size:0.95rem;
+
 transition:0.3s;
+
 position:relative;
+
 }
 
 nav a:hover{
+
 color:#39ff14;
+
 }
 
 nav a::after{
+
 content:"";
+
 position:absolute;
+
 left:0;
+
 bottom:-6px;
+
 width:0%;
+
 height:2px;
+
 background:#39ff14;
+
 transition:0.3s;
+
 }
 
 nav a:hover::after{
+
 width:100%;
+
 }
 
-/* ===== HERO ===== */
+.phone{
+
+text-decoration:none;
+
+font-weight:800;
+
+color:#39ff14;
+
+}
+
+/* HERO */
 
 .hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-padding:140px 7%;
-position:relative;
-overflow:hidden;
-background:
-linear-gradient(
-rgba(0,0,0,0.65),
-rgba(0,0,0,0.8)
-),
-url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop');
 
-background-size:cover;
-background-position:center;
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:
+
+170px 7%
+
+100px;
+
+position:relative;
+
+overflow:hidden;
+
+background:
+
+radial-gradient(
+
+circle at top left,
+
+rgba(57,255,20,0.12),
+
+transparent 40%
+
+),
+
+radial-gradient(
+
+circle at bottom right,
+
+rgba(57,255,20,0.08),
+
+transparent 35%
+
+),
+
+linear-gradient(
+
+135deg,
+
+#05070d,
+
+#0b1120,
+
+#111827
+
+);
+
 }
 
 .hero::before{
+
 content:"FF";
+
 position:absolute;
-right:-60px;
-bottom:-80px;
+
+right:-70px;
+
+bottom:-100px;
+
 font-size:28rem;
+
 font-weight:900;
-color:rgba(255,255,255,0.03);
+
+color:
+
+rgba(255,255,255,0.03);
+
+user-select:none;
+
 pointer-events:none;
+
 }
 
 .hero-content{
-max-width:720px;
-z-index:2;
-}
 
-.hero-badge{
-display:inline-flex;
-align-items:center;
-gap:10px;
-padding:12px 18px;
-border-radius:999px;
-background:rgba(57,255,20,0.12);
-border:1px solid rgba(57,255,20,0.25);
-color:#39ff14;
-font-weight:700;
-margin-bottom:25px;
-backdrop-filter:blur(10px);
+max-width:850px;
+
+z-index:2;
+
 }
 
 .hero h1{
-font-size:6rem;
-line-height:0.9;
+
+font-size:5.5rem;
+
+line-height:0.95;
+
 font-weight:900;
-margin-bottom:30px;
+
 letter-spacing:-4px;
+
+margin-bottom:30px;
+
 }
 
 .hero h1 span{
+
 color:#39ff14;
+
 text-shadow:
-0 0 10px #39ff14,
-0 0 25px rgba(57,255,20,0.8);
+
+0 0 15px
+
+rgba(57,255,20,0.8),
+
+0 0 40px
+
+rgba(57,255,20,0.35);
+
 }
 
-.hero p{
-font-size:1.3rem;
+.hero-subtitle{
+
+font-size:1.45rem;
+
 line-height:1.8;
+
 color:#d1d5db;
-margin-bottom:25px;
-max-width:650px;
+
+max-width:760px;
+
+margin:auto;
+
 }
+
+.hero-services{
+
+margin-top:50px;
+
+display:flex;
+
+justify-content:center;
+
+gap:18px;
+
+flex-wrap:wrap;
+
+}
+
+.hero-pill{
+
+padding:
+
+15px 25px;
+
+border-radius:
+
+999px;
+
+background:
+
+rgba(255,255,255,0.04);
+
+border:
+
+1px solid
+
+rgba(57,255,20,0.25);
+
+backdrop-filter:
+
+blur(10px);
+
+font-weight:700;
+
+}
+
+/* BUTTONS */
 
 .hero-buttons{
+
+margin-top:50px;
+
 display:flex;
-gap:18px;
+
+justify-content:center;
+
+gap:20px;
+
 flex-wrap:wrap;
-margin-top:40px;
+
 }
 
-/* ===== BUTTONS ===== */
-
 .btn{
+
 display:inline-flex;
-align-items:center;
+
 justify-content:center;
-padding:18px 34px;
+
+align-items:center;
+
+padding:
+
+18px 34px;
+
 border-radius:18px;
+
 text-decoration:none;
+
 font-weight:800;
+
 transition:0.35s;
-font-size:1rem;
+
 }
 
 .btn-primary{
+
 background:#39ff14;
+
 color:black;
+
 box-shadow:
-0 0 15px rgba(57,255,20,0.5),
-0 0 35px rgba(57,255,20,0.2);
+
+0 0 15px
+
+rgba(57,255,20,0.5),
+
+0 0 35px
+
+rgba(57,255,20,0.2);
+
 }
 
 .btn-primary:hover{
-transform:translateY(-4px);
+
+transform:
+
+translateY(-4px);
+
 box-shadow:
-0 0 20px rgba(57,255,20,0.9),
-0 0 40px rgba(57,255,20,0.5);
+
+0 0 20px
+
+rgba(57,255,20,0.9),
+
+0 0 40px
+
+rgba(57,255,20,0.5);
+
 }
 
 .btn-secondary{
-border:1px solid rgba(255,255,255,0.15);
-background:rgba(255,255,255,0.04);
-backdrop-filter:blur(10px);
+
+background:
+
+rgba(255,255,255,0.04);
+
+border:
+
+1px solid
+
+rgba(255,255,255,0.15);
+
 color:white;
+
 }
 
 .btn-secondary:hover{
+
 border-color:#39ff14;
+
 color:#39ff14;
+
 }
 
-/* ===== SECTIONS ===== */
+/* SECTIONS */
 
 section{
-padding:110px 7%;
+
+padding:
+
+110px 7%;
+
 }
 
 .section-title{
+
 font-size:3.5rem;
+
 font-weight:900;
+
 text-align:center;
+
 margin-bottom:70px;
-letter-spacing:-2px;
+
 }
 
-/* ===== CARDS ===== */
+/* CARDS */
 
 .cards{
+
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+grid-template-columns:
+
+repeat(
+
+auto-fit,
+
+minmax(260px,1fr)
+
+);
+
 gap:28px;
+
 }
 
 .card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
-backdrop-filter:blur(18px);
-border-radius:28px;
-padding:35px;
-transition:0.4s;
-position:relative;
-overflow:hidden;
-display:flex;
-flex-direction:column;
-}
 
-.card::before{
-content:"";
-position:absolute;
-top:-50%;
-right:-50%;
-width:200px;
-height:200px;
-background:rgba(57,255,20,0.08);
-border-radius:50%;
+background:
+
+rgba(255,255,255,0.05);
+
+border:
+
+1px solid
+
+rgba(255,255,255,0.08);
+
+border-radius:28px;
+
+padding:35px;
+
+backdrop-filter:
+
+blur(18px);
+
+transition:0.35s;
+
 }
 
 .card:hover{
-transform:translateY(-10px);
-border-color:rgba(57,255,20,0.4);
-box-shadow:
-0 0 25px rgba(57,255,20,0.08);
+
+transform:
+
+translateY(-10px);
+
+border-color:
+
+rgba(57,255,20,0.35);
+
 }
 
 .card h3{
-font-size:1.5rem;
-margin-bottom:20px;
+
 color:#39ff14;
-min-height:60px;
-display:flex;
-align-items:center;
+
+font-size:1.5rem;
+
+margin-bottom:20px;
+
 }
 
 .card p{
+
 line-height:1.8;
+
 color:#d1d5db;
-flex-grow:1;
+
 }
 
-/* ===== ABOUT ===== */
+/* ABOUT */
 
 .about{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:35px;
-}
 
-.about-box{
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.08);
-backdrop-filter:blur(18px);
-border-radius:30px;
-padding:45px;
-}
+max-width:900px;
 
-.about-box h2{
-font-size:2.5rem;
-margin-bottom:25px;
-line-height:1.1;
-}
-
-.green{
-color:#39ff14;
-}
-
-.about-box p{
-line-height:1.9;
-color:#d1d5db;
-margin-bottom:20px;
-}
-
-.badges{
-display:flex;
-flex-wrap:wrap;
-gap:14px;
-margin-top:25px;
-}
-
-.badge{
-padding:12px 18px;
-border-radius:999px;
-background:#111827;
-border:1px solid rgba(57,255,20,0.3);
-color:#39ff14;
-font-weight:700;
-}
-
-/* ===== PRICE ===== */
-
-.price-box{
-background:
-linear-gradient(
-135deg,
-rgba(57,255,20,0.1),
-rgba(255,255,255,0.03)
-);
-
-border:1px solid rgba(57,255,20,0.15);
-
-padding:60px;
-border-radius:35px;
-text-align:center;
-}
-
-.price-box h2{
-font-size:3rem;
-margin-bottom:25px;
-}
-
-.price-box p{
-max-width:800px;
 margin:auto;
-line-height:1.9;
-font-size:1.1rem;
-color:#d1d5db;
+
+text-align:center;
+
 }
 
-/* ===== CONTACT ===== */
+.about p{
+
+font-size:1.2rem;
+
+line-height:1.9;
+
+color:#d1d5db;
+
+}
+
+/* CONTACT */
 
 .contact{
-text-align:center;
-}
 
-.contact-box{
 max-width:700px;
+
 margin:auto;
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.08);
-border-radius:35px;
-padding:60px 30px;
-backdrop-filter:blur(15px);
+
+text-align:center;
+
 }
 
-.contact-box p{
-font-size:1.2rem;
+.contact p{
+
+font-size:1.25rem;
+
 margin-bottom:18px;
+
 color:#d1d5db;
+
 }
 
-/* ===== WHATSAPP ===== */
+/* FOOTER */
+
+.footer{
+
+padding:50px;
+
+text-align:center;
+
+border-top:
+
+1px solid
+
+rgba(255,255,255,0.08);
+
+}
+
+.footer a{
+
+color:#39ff14;
+
+text-decoration:none;
+
+}
+
+/* WHATSAPP */
 
 .whatsapp{
+
 position:fixed;
-right:20px;
-bottom:20px;
+
+right:25px;
+
+bottom:25px;
+
+width:62px;
+
+height:62px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
 background:#25D366;
-color:white;
+
+border-radius:50%;
+
 text-decoration:none;
-padding:16px 24px;
-border-radius:999px;
-font-weight:800;
-z-index:999;
+
 box-shadow:
-0 0 20px rgba(0,0,0,0.25);
+
+0 0 20px
+
+rgba(37,211,102,0.45);
+
 transition:0.3s;
+
 }
 
 .whatsapp:hover{
+
 transform:scale(1.08);
+
 }
 
-/* ===== FOOTER ===== */
-
-footer{
-padding:45px;
-text-align:center;
-color:#9ca3af;
-border-top:1px solid rgba(255,255,255,0.05);
-}
-
-/* ===== MOBILE ===== */
+/* MOBILE */
 
 @media(max-width:950px){
 
-nav{
+nav,
+
+.phone{
+
 display:none;
+
 }
 
 .hero{
-padding:140px 25px 100px;
+
+padding:
+
+150px 25px
+
+100px;
+
 }
 
 .hero h1{
-font-size:3.7rem;
-letter-spacing:-2px;
-}
 
-.hero p{
-font-size:1.1rem;
+font-size:3.3rem;
+
+letter-spacing:-2px;
+
 }
 
 .hero::before{
+
 font-size:12rem;
+
 right:-20px;
+
 bottom:-20px;
+
 }
 
 .section-title{
+
 font-size:2.5rem;
-}
 
-.about{
-grid-template-columns:1fr;
-}
-
-.price-box{
-padding:40px 25px;
-}
-
-.card h3{
-min-height:auto;
-}
-
-header{
-padding:18px 25px;
-}
-
-.logo{
-font-size:2rem;
-}
-
-.hero-buttons{
-flex-direction:column;
-align-items:flex-start;
-}
-
-.btn{
-width:100%;
-max-width:320px;
 }
 
 }
-.footer {
-    background: #0f1720;
-    padding: 50px 20px;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.08);
-}
 
-.footer-content {
-    max-width: 800px;
-    margin: auto;
-}
-
-.footer-logo {
-    width: 100px;
-    margin-bottom: 20px;
-}
-
-.footer h3 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #39ff14;
-}
-
-.footer p {
-    color: #d1d5db;
-    line-height: 1.8;
-    margin-bottom: 12px;
-}
-
-.footer-contact {
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.footer-legal {
-    margin-top: 30px;
-    font-size: 14px;
-    opacity: 0.8;
-}
-
-.copyright {
-    margin-top: 40px;
-    opacity: 0.5;
-    font-size: 13px;
-}
 </style>
-</head>
 
+</head>
 <body>
 
 <header>
 
 <div class="logo">
-  <img src="logo.png" alt="Felix Fertig Logo">
+
+<img
+src="logo.png"
+alt="Felix Fertig Logo">
+
 </div>
 
 <nav>
-<a href="#leistungen">Leistungen</a>
-<a href="#uebermich">Über mich</a>
-<a href="#preise">Preise</a>
-<a href="#kontakt">Kontakt</a>
+
+<a href="#leistungen">
+
+Leistungen
+
+</a>
+
+<a href="#uebermich">
+
+Über mich
+
+</a>
+
+<a href="#kontakt">
+
+Kontakt
+
+</a>
+
 </nav>
+
+<a
+
+class="phone"
+
+href="tel:+4369918833159">
+
++43 699 18833159
+
+</a>
 
 </header>
 
@@ -564,32 +781,78 @@ max-width:320px;
 
 <div class="hero-content">
 
-<div class="hero-badge">
-⚡ Praxis statt Blabla
-</div>
-
 <h1>
-Damit’s <br>
-<span>einfach erledigt</span> ist.
+
+<span>
+
+Hausbetreuung
+
+</span>
+
+<br>
+
+Immobilienbetreuung
+
+<br>
+
+Sanierungsberatung
+
 </h1>
 
-<p>
-Betreuung, Koordination & technische Unterstützung
-rund um Gebäude, Wohnungen und Immobilien.
+<p class="hero-subtitle">
+
+Damit's einfach erledigt ist.
+
+<br><br>
+
+Zuverlässige Betreuung,
+Beratung und technische Unterstützung
+rund um Immobilien in Wien.
+
 </p>
 
-<p>
-Nimmst den Felix, bist fertig.
-</p>
+<div class="hero-services">
+
+<div class="hero-pill">
+
+🏠 Hausbetreuung
+
+</div>
+
+<div class="hero-pill">
+
+🏢 Immobilienbetreuung
+
+</div>
+
+<div class="hero-pill">
+
+🛠 Sanierungsberatung
+
+</div>
+
+</div>
 
 <div class="hero-buttons">
 
-<a href="#kontakt" class="btn btn-primary">
+<a
+
+href="#kontakt"
+
+class="btn btn-primary">
+
 Jetzt anfragen
+
 </a>
 
-<a href="#uebermich" class="btn btn-secondary">
+<a
+
+href="#uebermich"
+
+class="btn btn-secondary">
+
 Mehr erfahren
+
 </a>
 
 </div>
@@ -603,41 +866,94 @@ Mehr erfahren
 <section id="leistungen">
 
 <h2 class="section-title">
+
 Leistungen
+
 </h2>
 
 <div class="cards">
 
 <div class="card">
-<h3>Objektbetreuung</h3>
+
+<h3>
+
+Hausbetreuung
+
+</h3>
+
 <p>
-Unterstützung rund um Immobilien,
-Betreuung und Koordination im Alltag.
+
+Regelmäßige Betreuung
+und Unterstützung
+rund um Wohn-
+und Gewerbeimmobilien.
+
 </p>
+
 </div>
 
 <div class="card">
-<h3>Sanierungskoordination</h3>
+
+<h3>
+
+Immobilienbetreuung
+
+</h3>
+
 <p>
-Organisation, Abstimmung und praktische Lösungen
-bei Sanierungen und Umbauten.
+
+Objektbegehungen,
+
+Dokumentation
+
+und organisatorische Unterstützung.
+
 </p>
+
 </div>
 
 <div class="card">
-<h3>FM Beratung</h3>
+
+<h3>
+
+Sanierungsberatung
+
+</h3>
+
 <p>
-Facility Management Unterstützung
-mit Praxisbezug statt unnötigem Fachchinesisch.
+
+Beratung
+
+und Koordination
+
+bei Sanierungen
+
+und Umbauten.
+
 </p>
+
 </div>
 
 <div class="card">
-<h3>Technische Unterstützung</h3>
+
+<h3>
+
+Technische Unterstützung
+
+</h3>
+
 <p>
-Hilfe bei technischen Themen,
-Koordination und Problemlösungen.
+
+Pragmatische Lösungen
+
+bei technischen
+
+und organisatorischen
+
+Herausforderungen.
+
 </p>
+
 </div>
 
 </div>
@@ -648,92 +964,72 @@ Koordination und Problemlösungen.
 
 <section id="uebermich">
 
+<h2 class="section-title">
+
+Warum Felix Fertig?
+
+</h2>
+
 <div class="about">
 
-<div class="about-box">
-
-<h2>
-Warum <span class="green">Felix Fertig?</span>
-</h2>
-
 <p>
-Ich komme nicht aus irgendeinem Büro.
-Ich komme aus der Praxis.
-</p>
 
-<p>
-Vom Betriebsschlosser über Industrie,
-Logistik und Pharma bis hin zu Facility Management,
-Property Management und technischer Immobilienbetreuung.
-</p>
+Mein Name ist
 
-<p>
-Von Knorr, Spar und Böhringer Ingelheim
-bis hinein in den Automotive Bereich bei BMW.
-</p>
+<strong>Felix Fritz Kerbler</strong>.
 
-<p>
-Dabei ging es nie um Theorie —
-sondern immer darum,
-dass Dinge funktionieren.
-</p>
-
-</div>
-
-<div class="about-box">
-
-<h2>
-Praxis statt <span class="green">PowerPoint.</span>
-</h2>
-
-<p>
-Keine unnötigen Meetings.
-Keine komplizierten Prozesse.
-Keine leeren Versprechen.
-</p>
-
-<p>
-Sondern Lösungen,
-Organisation,
-technische Unterstützung
-und Handschlagqualität.
-</p>
-
-<div class="badges">
-
-<div class="badge">🛠 Industrie</div>
-<div class="badge">🏢 Facility Management</div>
-<div class="badge">🏗 Sanierung</div>
-<div class="badge">⚡ Technik</div>
-<div class="badge">🤝 Handschlagqualität</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- PREISE -->
-
-<section id="preise">
-
-<div class="price-box">
-
-<h2>
-Transparent & unkompliziert
-</h2>
-
-<p>
-Jedes Projekt ist unterschiedlich.
-Deshalb gibt’s bei mir keine komplizierten Paketpreise
-oder unnötigen Verträge.
 <br><br>
-Einfach melden,
-Situation erklären
-und wir finden eine praktische Lösung —
-schnell, direkt und fair.
+
+Ich komme nicht aus irgendeinem Büro.
+
+Ich komme aus der Praxis.
+
+<br><br>
+
+Vom Betriebsschlosser über Industrie,
+
+Logistik und Pharma bis hin zu
+
+Facility Management,
+
+Property Management
+
+und technischer Immobilienbetreuung.
+
+<br><br>
+
+Von Knorr,
+
+Spar
+
+und Böhringer Ingelheim
+
+bis hinein in den Automotive Bereich bei BMW.
+
+<br><br>
+
+Dabei ging es nie um Theorie —
+
+sondern immer darum,
+
+dass Dinge funktionieren.
+
+<br><br>
+
+<strong>
+
+Praxis statt PowerPoint.
+
+</strong>
+
+<br>
+
+Direkt.
+
+Praxisnah.
+
+Lösungsorientiert.
+
 </p>
 
 </div>
@@ -742,75 +1038,230 @@ schnell, direkt und fair.
 
 <!-- KONTAKT -->
 
-<section id="kontakt" class="contact">
+<section id="kontakt">
 
 <h2 class="section-title">
+
 Kontakt
+
 </h2>
 
-<div class="contact-box">
+<div class="contact">
 
 <p>
-📞 +43 699 18833159
+
+📞
+
+<a
+
+href="tel:+4369918833159"
+
+style="color:#39ff14;text-decoration:none;">
+
++43 699 18833159
+
+</a>
+
 </p>
 
 <p>
-📧 office@felix-fertig.at
+
+📧
+
+<a
+
+href="mailto:office@felix-fertig.at"
+
+style="color:#39ff14;text-decoration:none;">
+
+office@felix-fertig.at
+
+</a>
+
+</p>
+
+<p>
+
+📍 Wien
+
+</p>
+
+<p>
+
+GISA: 39723390
+
 </p>
 
 <br>
 
-<a href="mailto:office@felix-fertig.at"
+<a
+
+href="mailto:office@felix-fertig.at"
+
 class="btn btn-primary">
-Anfrage senden
+
+Jetzt anfragen
+
 </a>
 
 </div>
 
 </section>
 
+<!-- WHATSAPP -->
 
-<a class="whatsapp"
+<a
+
+class="whatsapp"
+
 href="https://wa.me/4369918833159"
-target="_blank">
-WhatsApp
+
+target="_blank"
+
+aria-label="WhatsApp">
+
+💬
+
 </a>
 
-  <footer class="footer">
-  <div class="footer-content">
-    <img src="logo.png" alt="Felix Fertig Logo" class="footer-logo">
+<!-- FOOTER -->
 
-    <h3>Felix Fertig</h3>
+<footer class="footer">
 
-    <p>
-      Betreuung, Koordination & technische Unterstützung
-      rund um Gebäude, Wohnungen und Immobilien.
-    </p>
+<img
 
-    <div class="footer-contact">
-      <p>📞 +43 699 18833159</p>
-      <p>📧 office@felix-fertig.at</p>
-      <p>📍 Wien, Österreich</p>
-    </div>
+src="logo.png"
 
-    <div class="footer-legal">
-      <p>
-        Gewerbe:
-        Hausbetreuung, bestehend in der Durchführung einfacher
-        Reinigungstätigkeiten einschließlich objektbezogener
-        einfacher Wartungstätigkeiten
-      </p>
+alt="Felix Fertig Logo"
 
-      <p>
-        Einzelunternehmen · Felix Fritz Kerbler
-      </p>
-    </div>
+style="width:110px;margin-bottom:25px;">
 
-    <p class="copyright">
-      © 2026 Felix Fertig. Alle Rechte vorbehalten.
-    </p>
-  </div>
+<h3
+
+style="
+
+font-size:32px;
+
+margin-bottom:20px;
+
+color:#39ff14;">
+
+Felix Fertig
+
+</h3>
+
+<p
+
+style="
+
+max-width:700px;
+
+margin:auto;
+
+line-height:1.8;
+
+color:#d1d5db;">
+
+Hausbetreuung ·
+
+Immobilienbetreuung ·
+
+Sanierungsberatung
+
+</p>
+
+<br>
+
+<p>
+
+📞 +43 699 18833159
+
+</p>
+
+<p>
+
+📧 office@felix-fertig.at
+
+</p>
+
+<p>
+
+📍 Wien
+
+</p>
+
+<br>
+
+<p
+
+style="
+
+font-size:14px;
+
+opacity:0.8;">
+
+Einzelunternehmen
+
+·
+
+Felix Fritz Kerbler
+
+</p>
+
+<p
+
+style="
+
+font-size:14px;
+
+opacity:0.8;">
+
+Gewerbe:
+
+Hausbetreuung
+
+(Freies Gewerbe)
+
+</p>
+
+<br>
+
+<p>
+
+<a href="impressum.html">
+
+Impressum
+
+</a>
+
+&nbsp;|&nbsp;
+
+<a href="datenschutz.html">
+
+Datenschutz
+
+</a>
+
+</p>
+
+<br>
+
+<p
+
+style="
+
+opacity:0.5;
+
+font-size:13px;">
+
+© 2026 Felix Fertig
+
+Alle Rechte vorbehalten.
+
+</p>
+
 </footer>
-  
+
 </body>
+
 </html>
